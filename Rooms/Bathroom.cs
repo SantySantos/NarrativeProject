@@ -18,12 +18,12 @@ You can return to your [bedroom].
             switch (choice)
             {
                 case "bath":
-                    Console.WriteLine("You relax in the bath, but there is not running water, do you want to turn it on [yes] or [no]?");
-                    yesOrno = Console.ReadLine();
+                    Console.WriteLine("You are relaxed in the bath, but there is not running water, do you want to turn it on [yes] or [no]?");
+                    yesOrno = Console.ReadLine().ToLower();
                     switch (yesOrno)
                     {
                         case "yes":
-                            Console.WriteLine("you had a nice bath and now leave it but there is something strange in the mirror");
+                            Console.WriteLine("you had a nice bath and now you leave it but there is something strange in the mirror");
                             Game.Transition<Bathroom>();
                             break;
                         case "no":
@@ -36,7 +36,7 @@ You can return to your [bedroom].
                     }
                     break;
                 case "mirror":
-                    switch (IsOn(choice))
+                    switch (IsOn(yesOrno))
                     {
                         case true:
                             Console.WriteLine("you see a code 6969 in the morrow, what");
@@ -47,9 +47,6 @@ You can return to your [bedroom].
                         default:
                             Console.WriteLine("Invalid command.");
                             break;
-
-
-
                     }
                     break;
                 case "bedroom":
